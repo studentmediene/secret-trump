@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Games } from '../../../../both/collections/games.collection';
+import { Game } from '../../../../both/models/game.model';
 import { Players } from '../../../../both/collections/players.collection';
 
 //noinspection TypeScriptCheckImport
@@ -11,13 +12,18 @@ import template from './host-register.component.html';
     template
 })
 export class HostRegisterComponent implements OnInit{
-    gameId: string = "582951";
+    gameId: string = '';
 
     constructor() {}
 
     ngOnInit(): void {
         this.gameId = this.generateRandomId();
         Games.insert({gameId: this.gameId});
+
+        Games.find({gameId: this.gameId})
+            .subscribe((data:Game[]) => {
+                
+            });
     }
 
     private generateRandomId(): string {
