@@ -11,7 +11,17 @@
         <h4>Status: Waiting for PRESIDENT to choose Chancellor.</h3>
     </div>
     <div class="role-buttons">
-        Hold the button to see your role (Democrat, Republican, Trump):
-        <button (click)="Role">Role</button>
+        Click the Role button to see your role.
+        <button (click)="clickedRole()">Role</button>
+    </div>
+    <div class="rolesview" [hidden]="hideRole">
+        <p>You are: </p>
+        <p [hidden]="hideTeam">
+            Teammates are:
+        </p>
+        <p [hidden]="hideTrump">
+            Trump is:
+        </p>
+
     </div>
 </section>
