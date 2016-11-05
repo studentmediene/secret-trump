@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { LobbyComponent } from './lobby/lobby.component';
 
 import { HostRegisterComponent } from './host/host-register.component';
-
+import { HostGameComponent } from './host/game/host-game.component';
 
 const routes: Routes = [
     {
@@ -25,6 +25,10 @@ const routes: Routes = [
     {
         path: 'create-game',
         component: HostRegisterComponent
+    },
+    {
+        path:'host/:id',
+        component: HostGameComponent
     }
 ];
 

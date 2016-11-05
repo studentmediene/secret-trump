@@ -1,4 +1,6 @@
 <section>
     <h2 class="sub-title">Game-pin: <em>{{gameId}}</em></h2>
     <st-active-players [gameId]="gameId"></st-active-players>
+
+    <h4 *ngIf="gameStarted" class="sub-title">Starting game...</h4>
 </section>
