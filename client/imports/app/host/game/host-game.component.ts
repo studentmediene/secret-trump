@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { Player } from '../../../../../both/models/player.model';
+
 //noinspection TypeScriptCheckImport
 import template from './host-game.component.html';
 
@@ -12,6 +14,8 @@ export class HostGameComponent implements OnInit, OnDestroy{
     gameId: string;
     private sub: any;
 
+    president: Player;
+
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit():void {
@@ -19,7 +23,8 @@ export class HostGameComponent implements OnInit, OnDestroy{
             this.gameId = params['id'];
         });
 
-        
+
+
     }
 
     ngOnDestroy():void {
