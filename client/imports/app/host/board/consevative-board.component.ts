@@ -11,7 +11,6 @@ import style from './all-boards.component.scss';
     styles: [ style ]
 })
 export class ConservativeBoardComponent {
-    board = [null, null, null, null, null, {victory: true, label: 'Hillary for president!'}];
-
+    board = [null, null, {label: 'Some thing'}, null, null, {victory: true, label: 'Victory!'}];
 
 }

@@ -11,9 +11,25 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px;
 }
 
+header {
+    margin-top: 50px;
+    width: 40em;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon {
+    position: absolute;
+    width: 40px;
+}
+
+
 .title {
     color: #FFF;
     text-align: center;
+    font-size: 3.0em;
+    margin-top: 0;
 }
 
 .sub-title {

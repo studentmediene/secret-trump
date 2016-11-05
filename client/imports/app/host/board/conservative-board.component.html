@@ -1,7 +1,7 @@
-<table class="board">
-    <td *ngFor="let b of board" [class.populated]="b">
-        <p *ngIf="b">Victory</p>
-        <p *ngIf="!b">Open</p>
-    </td>
-</table>
+<ul class="board board-conservative">
+    <li *ngFor="let b of board" [class.populated]="b">
+        <p *ngIf="b">{{b.label}}</p>
+        <p *ngIf="!b">none</p>
+    </li>
+</ul>
 

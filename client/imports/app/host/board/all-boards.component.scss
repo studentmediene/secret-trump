@@ -1,28 +1,54 @@
+$selectedShadow: rgba(0,0,0,.2) 0.10em 0.10em 0.15em;
+$defaultShadow: rgba(0,0,0,.3) 0.05em 0.05em 0.1em;
 
 .board {
+    margin-top: 20px;
     list-style-type: none;
-    background-color: #ECEFF1;
-    width: 100%;
+
+    text-align: center;
     border: none;
+    display: flex;
 }
 
-.board td {
-    height: 100%;
+.board li {
+    background-color: #ECEFF1;
+    flex-grow: 1;
     padding-top: 50px;
     padding-bottom: 50px;
-    font-size: 0.9em;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 2px;
+    font-size: 0.8em;
+    box-shadow: $defaultShadow;
+    flex-basis: 15%;
 }
 
-.board td~td {
-    border-left: #555 solid 3px;
+.board li~li {
+    /*border-left: #555 solid 3px;*/
 
 }
 
-td p {
-    text-align: center;
+.populated p{
+    color: #efefef;
 }
 
-.populated {
-    background-color: #90A4AE;
+.board-conservative li {
+    background-color: #E1F5FE;
 }
 
+.board-conservative .populated {
+    background-color: #039BE5;
+    box-shadow: $selectedShadow;
+}
+
+.board-republicans li {
+    background-color: #FFEBEE;
+}
+
+.board-republicans .populated {
+    background-color: #EF5350;
+
+    box-shadow: $selectedShadow;
+}

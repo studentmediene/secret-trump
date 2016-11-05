@@ -1,3 +1,7 @@
-<div>
-    <p>Republicans</p>
-</div>
+<ul class="board board-republicans">
+    <li *ngFor="let b of board" [class.populated]="b.active">
+        <p>{{b.label}}</p>
+        <p *ngIf="b.unlocks">{{b.unlocks}}</p>
+    </li>
+</ul>
+

@@ -10,7 +10,12 @@ import template from './host-game.component.html';
 
 @Component({
     selector: 'st-host-game',
-    template
+    template,
+    styles: [`
+        section {
+            width: 60em;
+        }
+    `]
 })
 export class HostGameComponent implements OnInit, OnDestroy{
     gameId: string;
