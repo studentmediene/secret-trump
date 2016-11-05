@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LOGIN_DECLARATIONS } from './login';
 import { PLAYER_DECLARATIONS } from './players';
+import { HOST_DECLARATIONS } from './host';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { PLAYER_DECLARATIONS } from './players';
     declarations: [
         AppComponent,
         ...LOGIN_DECLARATIONS,
-        ...PLAYER_DECLARATIONS
+        ...PLAYER_DECLARATIONS,
+        ...HOST_DECLARATIONS
     ],
     bootstrap: [
         AppComponent

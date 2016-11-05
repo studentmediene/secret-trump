@@ -1,0 +1,13 @@
+<section>
+    <h2 class="sub-title">New Game</h2>
+
+    <div>
+        <h3>Game-pin: <em>{{hostId}}</em></h3>
+    </div>
+
+    <form [formGroup]="createGameForm" (ngSubmit)="createGame()">
+        <label>username</label>
+        <input type="text" formControlName="username">
+        <button type="submit">Lag spill</button>
+    </form>
+</section>
