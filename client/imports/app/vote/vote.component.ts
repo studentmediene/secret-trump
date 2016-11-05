@@ -20,6 +20,7 @@ import style from './vote.component.scss';
 export class VoteComponent implements OnInit {
 
     private gameId: string;
+    private activePlayer: Player;
 
     private election: Election;
     private candidate: Player;
@@ -28,10 +29,14 @@ export class VoteComponent implements OnInit {
 
     ngOnInit() {
         this.gameId = this.gameService.getGameId();
+        console.debug('gameId = ' + this.gameId);
 
         let elections: Observable<Election[]> = Elections.find({gameId: this.gameId}).zone();
         elections.subscribe(
             (elections: Election[]) => {
+                console.debug('elections:');
+                console.log(elections);
+
                 this.election = elections[elections.length - 1];
                 this.candidate = this.election.candidate;
             }
@@ -40,9 +45,10 @@ export class VoteComponent implements OnInit {
 
     private vote(vote: boolean) {
         console.debug('vote = ' + vote);
-        if (vote) {
-        } else {
-        }
+
+        let newVotes = this.election.votes;
+        newVotes[this.activePlayer.username] = vote;
+        Elections.update({electionId: this.election.electionId}, {votes: newVotes})
     }
 
 }
