@@ -1,0 +1,28 @@
+
+.board {
+    list-style-type: none;
+    background-color: #ECEFF1;
+    width: 100%;
+    border: none;
+}
+
+.board td {
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 0.9em;
+}
+
+.board td~td {
+    border-left: #555 solid 3px;
+
+}
+
+td p {
+    text-align: center;
+}
+
+.populated {
+    background-color: #90A4AE;
+}
+
