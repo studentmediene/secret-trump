@@ -1,6 +1,17 @@
-<div>
-    GAME STARTED.
-    <ul>
-        <li>ROLE =  </li>
-    </ul>
-</div>
+<section>
+    <h2>Game Started</h2>
+
+    <div class="candidate">
+        <h3>Candidate: {{candidate}}</h3>
+    </div>
+
+    <div class="candidate">
+        <h3>President: PRESIDENT</h3>
+        <h3>Chancellor: none</h3>
+        <h4>Status: Waiting for PRESIDENT to choose Chancellor.</h3>
+    </div>
+    <div class="role-buttons">
+        Hold the button to see your role (Democrat, Republican, Trump):
+        <button (click)="Role">Role</button>
+    </div>
+</section>
