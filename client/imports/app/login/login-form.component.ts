@@ -5,13 +5,10 @@ import { Players } from '../../../../both/collections/players.collection';
 
 //noinspection TypeScriptCheckImport
 import template from './login-form.component.html';
-//noinspection TypeScriptCheckImport
-import style from './login-form.component.scss';
 
 @Component({
     selector: 'st-login-form',
-    template,
-    styles: [ style ]
+    template
 })
 export class LoginFormComponent implements OnInit {
     loginForm: FormGroup;
