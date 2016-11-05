@@ -1,0 +1,14 @@
+<section>
+    <h2>Login to a game</h2>
+    <p class="description">Welcome! To join a game insert the game-id you've been given from the host of the game.
+        Then select your unique username and carry on to the game!</p>
+
+    <div>
+        <h2 class="sub-title dark">Game-id: <em>{{hostId}}</em></h2>
+    </div>
+
+
+    <st-active-players [gameId]="hostId"></st-active-players>
+
+    <st-login-form></st-login-form>
+</section>

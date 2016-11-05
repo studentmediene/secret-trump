@@ -1,0 +1,11 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginPlayer()">
+    <div>
+        <label>Spill id</label>
+        <input type="text" formControlName="gameId" autofocus>
+    </div>
+    <div>
+        <label>Brukernavn</label>
+        <input type="text" formControlName="username">
+    </div>
+    <button type="submit">Logg inn</button>
+</form>
