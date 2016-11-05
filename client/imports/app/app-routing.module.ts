@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
-
 import { LobbyComponent } from './lobby/lobby.component';
-
 import { VoteComponent } from './vote/vote.component';
+import { ClientGameComponent } from './client/client-game.component';
 
 import { HostRegisterComponent } from './host/host-register.component';
 import { HostGameComponent } from './host/game/host-game.component';
@@ -21,8 +20,12 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'lobby',
+        path: 'client/lobby/:gameId',
         component: LobbyComponent
+    },
+    {
+        path: 'client/game/:gameId',
+        component: ClientGameComponent
     },
     {
         path:'vote',

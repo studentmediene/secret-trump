@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Players } from '../../../../both/collections/players.collection';
+import { Games } from '../../../../both/collections/games.collection';
 
 //noinspection TypeScriptCheckImport
 import template from './login-form.component.html';
@@ -11,9 +13,13 @@ import template from './login-form.component.html';
     template
 })
 export class LoginFormComponent implements OnInit {
+    error: string;
     loginForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        private router: Router
+    ) { }
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
@@ -23,9 +29,26 @@ export class LoginFormComponent implements OnInit {
     }
 
     loginPlayer(): void {
-        if (this.loginForm.valid) {
-            Players.insert(this.loginForm.value);
-            this.loginForm.reset();
+        if (!this.loginForm.valid) {
+            this.error = "Please fill in both fields";
+            return;
         }
+
+        const {gameId, username} = this.loginForm.value;
+
+        const game = Games.findOne({gameId});
+
+        if (!game) {
+            this.error = "Invalid game pin :'(";
+            return;
+        }
+
+        if (game.started) {
+            this.error = "Game has already started";
+            return;
+        }
+
+        Players.insert(username);
+        this.router.navigate(['/client/lobby', gameId]);
     }
 }

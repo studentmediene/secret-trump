@@ -1,3 +1,5 @@
+$errorColor: red;
+
 * {
     font-family: Helvetica, serif;
     color: #444;
@@ -88,6 +90,11 @@ section {
     line-height: 1.5;
 }
 
+.error {
+    padding: 0.5em;
+    background: lighten($errorColor, 30);
+    border: 0.1em solid $errorColor;
+}
 
 /**
  * Form styles
@@ -102,6 +109,7 @@ section {
         div {
             margin-top: 20px;
             margin-bottom: 20px;
+            overflow: hidden;
         }
 
         label {
