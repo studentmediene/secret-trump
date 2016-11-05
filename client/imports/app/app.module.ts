@@ -10,8 +10,8 @@ import { LOGIN_DECLARATIONS } from './login';
 import { PLAYER_DECLARATIONS } from './players';
 import { LOBBY_DECLARATIONS } from './lobby';
 import { VOTE_DECLARATIONS } from './vote';
-
 import { HOST_DECLARATIONS } from './host';
+import { CLIENT_DECLARATIONS } from './client';
 
 import { SERVICE_PROVIDERS } from './services';
 
@@ -28,7 +28,8 @@ import { SERVICE_PROVIDERS } from './services';
         ...PLAYER_DECLARATIONS,
         ...LOBBY_DECLARATIONS,
         ...VOTE_DECLARATIONS,
-        ...HOST_DECLARATIONS
+        ...HOST_DECLARATIONS,
+        ...CLIENT_DECLARATIONS
     ],
     providers: [
         ...SERVICE_PROVIDERS

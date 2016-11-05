@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Games } from '../../../../both/collections/games.collection';
@@ -10,9 +10,10 @@ import template from './lobby.component.html';
     template
 })
 
-export class LobbyComponent implements OnInit{
+export class LobbyComponent implements OnInit, OnDestroy {
 
     game: Game;
+    private gameSubscription : any;
 
     constructor(
         private route : ActivatedRoute,
@@ -26,14 +27,43 @@ export class LobbyComponent implements OnInit{
         );
     }
 
-    updateGame(gameId) {
-        this.game = Games.findOne({gameId});
+    unsubscribe() : void {
+        const subscription = this.gameSubscription;
+
+        if (subscription) {
+            subscription.unsubscribe();
+        }
+    }
+
+    updateGame(gameId) : void {
+        this.unsubscribe();
+
+        this.gameSubscription = Games
+            .find({gameId})
+            .subscribe((games : Game[]) => {
+                if (games.length == 0) {
+                    this.game = null;
+                } else {
+                    this.game = games[0];
+
+                    if (games[0].started) {
+                        this.router.navigate(
+                            ['/client/game', games[0].gameId]
+                        );
+                    }
+                }
+            });
+
     }
 
     ngOnInit() : void {
-        const gameId = this.route.params
+        this.route.params
             .map(p => p['gameId'])
-            .subscribe(gameId => updateGame);
+            .subscribe(this.updateGame.bind(this));
+    }
+
+    ngOnDestroy() : void {
+        this.unsubscribe();
     }
 
 };

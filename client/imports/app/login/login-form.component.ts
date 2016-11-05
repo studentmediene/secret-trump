@@ -44,6 +44,6 @@ export class LoginFormComponent implements OnInit {
         }
 
         Players.insert(username);
-        this.router.navigate(['/lobby', gameId]);
+        this.router.navigate(['/client/lobby', gameId]);
     }
 }
