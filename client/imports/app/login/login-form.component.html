@@ -7,5 +7,6 @@
         <label>Brukernavn</label>
         <input type="text" formControlName="username">
     </div>
+    <p class="error" *ngIf="error">{{error}}</p>
     <button type="submit">Logg inn</button>
 </form>
