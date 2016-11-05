@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 
 import { LobbyComponent } from './lobby/lobby.component';
 
+import { VoteComponent } from './vote/vote.component';
+
 import { HostRegisterComponent } from './host/host-register.component';
 import { HostGameComponent } from './host/game/host-game.component';
 
@@ -21,6 +23,10 @@ const routes: Routes = [
     {
         path: 'lobby',
         component: LobbyComponent
+    },
+    {
+        path:'vote',
+        component: VoteComponent
     },
     {
         path: 'create-game',

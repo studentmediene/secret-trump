@@ -10,6 +10,8 @@ import { PLAYER_DECLARATIONS } from './players';
 
 import { LOBBY_DECLARATIONS } from './lobby';
 
+import { VOTE_DECLARATIONS } from './vote';
+
 import { HOST_DECLARATIONS } from './host';
 
 
@@ -25,6 +27,7 @@ import { HOST_DECLARATIONS } from './host';
         ...LOGIN_DECLARATIONS,
         ...PLAYER_DECLARATIONS,
         ...LOBBY_DECLARATIONS,
+        ...VOTE_DECLARATIONS,
         ...HOST_DECLARATIONS
     ],
     bootstrap: [
