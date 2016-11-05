@@ -1,15 +1,29 @@
-<section>
+<section *ngIf="!voting">
     <h3 class="sub-title">{{gameId}}</h3>
     <div>
-        <label>President</label><strong *ngIf="president">{{president.username}}</strong>
-        <label>Counselor</label><strong *ngIf="counselor">{{counselor.username}}</strong>
+        <label>President: </label>
+        <strong *ngIf="president">{{president.username}}</strong>
+        <strong *ngIf="!president">open</strong>
     </div>
+    <div>
+        <label>Counselor: </label>
+        <strong *ngIf="counselor">{{counselor.username}}</strong>
+        <strong *ngIf="!counselor">open</strong>
+    </div>
+
+</section>
+
+<section *ngIf="voting">
+    <h3 class="sub-title">VOTING</h3>
+
 </section>
 
 <section>
-    <h3 class="sub-title">Conservative</h3>
+    <h3 class="sub-title">Conservatives</h3>
+    <st-conservative-board></st-conservative-board>
 </section>
 
 <section>
     <h3 class="sub-title">Liberals</h3>
+    <st-republican-board></st-republican-board>
 </section>

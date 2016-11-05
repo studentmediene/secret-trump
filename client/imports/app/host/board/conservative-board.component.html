@@ -1,0 +1,7 @@
+<table class="board">
+    <td *ngFor="let b of board" [class.populated]="b">
+        <p *ngIf="b">Victory</p>
+        <p *ngIf="!b">Open</p>
+    </td>
+</table>
+

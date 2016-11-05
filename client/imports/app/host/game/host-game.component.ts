@@ -35,10 +35,15 @@ export class HostGameComponent implements OnInit, OnDestroy{
     playGame(gameId) {
         Players.find({ gameId })
             .subscribe((p: Player[]) => {
-                
+                console.log(...p);
             });
-
     }
+
+
+
+
+
+
 
 
     ngOnDestroy():void {
