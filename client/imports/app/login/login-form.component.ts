@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Players } from '../../../../both/collections/players.collection';
 
@@ -13,7 +14,10 @@ import template from './login-form.component.html';
 export class LoginFormComponent implements OnInit {
     loginForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        private router: Router
+    ) { }
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
@@ -23,9 +27,11 @@ export class LoginFormComponent implements OnInit {
     }
 
     loginPlayer(): void {
-        if (this.loginForm.valid) {
-            Players.insert(this.loginForm.value);
-            this.loginForm.reset();
+        if (!this.loginForm.valid) {
+            return;
         }
+
+        Players.insert(this.loginForm.value);
+        this.router.navigateByUrl('/lobby');
     }
 }
