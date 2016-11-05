@@ -1,5 +1,10 @@
-<section>
+<section *ngIf="game">
     <h2>Welcome to the campaign!</h2>
-    <p>Be sure to wait for your mates before you continue</p>
-    <button>Start game</button>
+    <p>Be sure to wait for your mates before you continue.</p>
+    <button (click)="startGame()">Start game</button>
+</section>
+
+<section *ngIf="!game">
+    <h2>No such game</h2>
+    <p>This game does not exist.</p>
 </section>

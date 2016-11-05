@@ -21,7 +21,7 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'lobby',
+        path: 'lobby/:gameId',
         component: LobbyComponent
     },
     {

@@ -34,14 +34,16 @@ export class LoginFormComponent implements OnInit {
             return;
         }
 
-        const game = Games.findOne({gameId: this.loginForm.value.gameId});
+        const {gameId, username} = this.loginForm.value;
+
+        const game = Games.findOne({gameId});
 
         if (!game) {
             this.error = "Invalid game pin :'(";
             return;
         }
 
-        Players.insert(this.loginForm.value);
-        this.router.navigateByUrl('/lobby');
+        Players.insert(username);
+        this.router.navigate(['/lobby', gameId]);
     }
 }
