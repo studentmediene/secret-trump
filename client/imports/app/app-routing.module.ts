@@ -9,6 +9,8 @@ import { ClientGameComponent } from './client/client-game.component';
 import { HostRegisterComponent } from './host/host-register.component';
 import { HostGameComponent } from './host/game/host-game.component';
 
+import { StartedComponent } from './started/started.component';
+
 const routes: Routes = [
     {
         path: '',
@@ -38,6 +40,10 @@ const routes: Routes = [
     {
         path:'host/:id',
         component: HostGameComponent
+    },
+    {
+        path:'started',
+        component: StartedComponent
     }
 ];
 
