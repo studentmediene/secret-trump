@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-//import { Games } from '../../../../both/collections/games.collection';
+import { Games } from '../../../../both/collections/games.collection';
 import { Players } from '../../../../both/collections/players.collection';
 
 //noinspection TypeScriptCheckImport
@@ -12,20 +11,20 @@ import template from './host-register.component.html';
     template
 })
 export class HostRegisterComponent implements OnInit{
-    hostId: string = "582951";
-    createGameForm: FormGroup;
+    gameId: string = "582951";
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor() {}
 
     ngOnInit(): void {
-        this.createGameForm = this.formBuilder.group({
-            username: ['', Validators.required]
-        });
+        this.gameId = this.generateRandomId();
+        Games.insert({gameId: this.gameId});
     }
 
-    createGame():void {
-        if(this.createGameForm.valid) {
-
-        }
+    private generateRandomId(): string {
+        let randNum: number = Math.floor(Math.random()*1000000)+1;
+        let randId: string = String(randNum);
+        randId = randId.length < 6 ? '0' + randId : randId;
+        return String(randId);
     }
+
 }
