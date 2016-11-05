@@ -106,30 +106,31 @@ form {
 	  outline: none;
 	  border-bottom-color: #42A5F5;
 	}
+}
 
-	> button {
-	  margin-top: 10px;
-	  padding: 7px;
-	  text-align: center;
-	  width: 100%;
-	  background-color: #2196F3;
-	  color: #FFF;
-	  font-size: 1.1em;
-	  border: none;
-	  box-shadow: rgba(0,0,0,.4) 0.05em 0.05em 0.1em;
-	  border-radius: 2px;
-	}
 
-	> button:hover {
+button {
+	margin-top: 10px;
+	padding: 7px;
+	text-align: center;
+	width: 100%;
+	background-color: #2196F3;
+	color: #FFF;
+	font-size: 1.1em;
+	border: none;
+	box-shadow: rgba(0,0,0,.4) 0.05em 0.05em 0.1em;
+	border-radius: 2px;
+
+	&:hover {
 	  box-shadow: rgba(0,0,0,.2) 0.1em 0.1em 0.3em;
 	}
 
-	> button:active {
+	&:active {
 	  background-color:#1E88E5;
 	  box-shadow: none;
 	}
 
-	> button:focus {
+	&:focus {
 	  outline: none;
 	}
 }
