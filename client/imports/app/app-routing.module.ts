@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
+
 import { LobbyComponent } from './lobby/lobby.component';
+
+import { HostRegisterComponent } from './host/host-register.component';
+
 
 const routes: Routes = [
     {
@@ -17,6 +21,10 @@ const routes: Routes = [
     {
         path: 'lobby',
         component: LobbyComponent
+    },
+    {
+        path: 'create-game',
+        component: HostRegisterComponent
     }
 ];
 

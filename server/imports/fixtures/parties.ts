@@ -1,4 +1,4 @@
-import { Parties } from '../../../both/collections/parties.collection';
+/*import { Parties } from '../../../both/collections/parties.collection';
 import { Party } from '../../../both/models/party.model';
 
 export function loadParties() {
@@ -19,4 +19,4 @@ export function loadParties() {
 
         parties.forEach((party: Party) => Parties.insert(party));
     }
-}
+}*/

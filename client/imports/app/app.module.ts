@@ -7,7 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LOGIN_DECLARATIONS } from './login';
 import { PLAYER_DECLARATIONS } from './players';
+
 import { LOBBY_DECLARATIONS } from './lobby';
+
+import { HOST_DECLARATIONS } from './host';
+
 
 @NgModule({
     imports: [
@@ -20,7 +24,8 @@ import { LOBBY_DECLARATIONS } from './lobby';
         AppComponent,
         ...LOGIN_DECLARATIONS,
         ...PLAYER_DECLARATIONS,
-        ...LOBBY_DECLARATIONS
+        ...LOBBY_DECLARATIONS,
+        ...HOST_DECLARATIONS
     ],
     bootstrap: [
         AppComponent
