@@ -43,6 +43,11 @@ export class LoginFormComponent implements OnInit {
             return;
         }
 
+        if (game.started) {
+            this.error = "Game has already started";
+            return;
+        }
+
         Players.insert(username);
         this.router.navigate(['/client/lobby', gameId]);
     }
