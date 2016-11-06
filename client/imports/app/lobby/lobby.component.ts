@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Games } from '../../../../both/collections/games.collection';
 import { Game } from '../../../../both/models/game.model';
+import { Elections } from '../../../../both/collections/elections.collection';
 
 import template from './lobby.component.html';
 
@@ -21,6 +22,16 @@ export class LobbyComponent implements OnInit, OnDestroy {
     ) {};
 
     startGame() {
+        // Kickstart the first election
+        Elections.insert({
+            electionId: 1,
+            gameId: this.game._id,
+            state: 'select_cadidate',
+            /*headOfCongress: TODO, */
+            votes: {}
+        });
+
+        // Start game
         Games.update(
             this.game._id,
             {$set: {started: true}}

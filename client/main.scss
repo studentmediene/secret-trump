@@ -75,7 +75,6 @@ section {
 .description {
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 500px;
     margin-left: auto;
     margin-right: auto;
     font-weight: 100;
@@ -94,7 +93,7 @@ section {
 $btnSidePadding: 15px;
 
 form {
-    width: 300px;
+    max-width: 15em;
     margin-left: auto;
     margin-right: auto;
 
