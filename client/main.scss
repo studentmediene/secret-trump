@@ -180,4 +180,25 @@ button {
     margin-right: .5%;
 }
 
+/**
+ * List with large, selectable items.
+ */
+ul.select {
+    list-style: none;
+    padding: 0;
 
+    > li {
+        padding: 1em;
+        display: block;
+        cursor: pointer;
+
+        &:hover {
+            background: gray;
+            color: white;
+        }
+    }
+
+    > li + li {
+        border-top: 0.1em solid gray;
+    }
+}

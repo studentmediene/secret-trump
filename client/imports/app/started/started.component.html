@@ -1,27 +1,31 @@
-<section>
-    <h2>Game Started</h2>
+<div *ngIf="election" [ngSwitch]="election.state">
+    <section>
+        <h2>Game Started</h2>
 
-    <div class="candidate">
-        <h3>Candidate: {{candidate}}</h3>
-    </div>
+        <div class="candidate">
+            <h3>Candidate: {{candidate}}</h3>
+        </div>
 
-    <div class="candidate">
-        <h3>President: PRESIDENT</h3>
-        <h3>Chancellor: none</h3>
-        <h4>Status: Waiting for PRESIDENT to choose Chancellor.</h3>
-    </div>
-    <div class="role-buttons">
-        Click the Role button to see your role.
-        <button (click)="clickedRole()">Role</button>
-    </div>
-    <div class="rolesview" [hidden]="hideRole">
-        <p>You are: </p>
-        <p [hidden]="hideTeam">
-            Teammates are:
-        </p>
-        <p [hidden]="hideTrump">
-            Trump is:
-        </p>
-
-    </div>
-</section>
+        <div class="candidate">
+            <h3>President: PRESIDENT</h3>
+            <h3>Chancellor: none</h3>
+            <h4>Status: Waiting for PRESIDENT to choose Chancellor.</h3>
+        </div>
+    </section>
+    <st-vote *ngSwitchCase="'voting'" [election]="election"></st-vote>
+    <section>
+        <div class="role-buttons">
+            Click the Role button to see your role.
+            <button (click)="clickedRole()">Role</button>
+        </div>
+        <div class="rolesview" [hidden]="hideRole">
+            <p>You are: </p>
+            <p class="teamview" *ngIf="hideTeam">
+                Teammates are:
+            </p>
+            <p class="trumpview" *ngIf="hideTrump">
+                Trump is:
+            </p>
+        </div>
+    </section>
+</div>

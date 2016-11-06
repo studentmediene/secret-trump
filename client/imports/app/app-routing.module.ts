@@ -25,10 +25,6 @@ const routes: Routes = [
         component: LobbyComponent
     },
     {
-        path:'vote',
-        component: VoteComponent
-    },
-    {
         path: 'create-game',
         component: HostRegisterComponent
     },

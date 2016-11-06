@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Component, Input } from '@angular/core';
 
 import { Elections } from '../../../../both/collections/elections.collection';
 import { Election } from '../../../../both/models/election.model';
@@ -11,44 +10,38 @@ import { GameService } from '../services/game.service';
 import template from './vote.component.html';
 //noinspection TypeScriptCheckImport
 import style from './vote.component.scss';
+
 @Component({
     selector: 'st-vote',
     template,
     styles: [ style ],
     providers: [ GameService ]
 })
-export class VoteComponent implements OnInit {
+export class VoteComponent {
 
-    private gameId: string;
-    private activePlayer: Player;
+    @Input() election : Election;
 
-    private election: Election;
-    private candidate: Player;
+    constructor(
+        private gameService: GameService
+    ) {}
 
-    constructor(private gameService: GameService) {}
-
-    ngOnInit() {
-        this.gameId = this.gameService.getGameId();
-        console.debug('gameId = ' + this.gameId);
-
-        let elections: Observable<Election[]> = Elections.find({gameId: this.gameId}).zone();
-        elections.subscribe(
-            (elections: Election[]) => {
-                console.debug('elections:');
-                console.log(elections);
-
-                this.election = elections[elections.length - 1];
-                this.candidate = this.election.candidate;
-            }
+    /**
+     * Register a vote.
+     */
+    private vote(vote: boolean) : void {
+        const playerId = this.gameService.activePlayerId;
+        Elections.update(
+            this.election._id,
+            {$set: {[`votes.${playerId}`]: vote}}
         );
     }
 
-    private vote(vote: boolean) {
-        console.debug('vote = ' + vote);
-
-        let newVotes = this.election.votes;
-        newVotes[this.activePlayer.username] = vote;
-        Elections.update({electionId: this.election.electionId}, {votes: newVotes})
+    /**
+     * Check whether this user has voted.
+     */
+    private hasVoted() : boolean {
+        const playerId = this.gameService.activePlayerId;
+        return this.election.votes &&
+            typeof this.election.votes[playerId] != 'undefined';
     }
-
 }
