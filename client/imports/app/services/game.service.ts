@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable'
+
+import { Players } from '../../../../both/collections/players.collection.ts';
+import { Player } from '../../../../both/models/player.model.ts';
 
 @Injectable()
 export class GameService {
@@ -8,6 +12,8 @@ export class GameService {
         return '666'
     }
 
-    getPlayersList(): void{}
+    getPlayersList(): Observable<Player[]>{
+        return Players.find({});
+    }
 
 }

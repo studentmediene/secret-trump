@@ -12,6 +12,7 @@ import { LOBBY_DECLARATIONS } from './lobby';
 import { VOTE_DECLARATIONS } from './vote';
 import { HOST_DECLARATIONS } from './host';
 import { CLIENT_DECLARATIONS } from './client';
+import { STARTED_DECLARATIONS } from './started';
 
 import { SERVICE_PROVIDERS } from './services';
 
@@ -29,7 +30,8 @@ import { SERVICE_PROVIDERS } from './services';
         ...LOBBY_DECLARATIONS,
         ...VOTE_DECLARATIONS,
         ...HOST_DECLARATIONS,
-        ...CLIENT_DECLARATIONS
+        ...CLIENT_DECLARATIONS,
+        ...STARTED_DECLARATIONS
     ],
     providers: [
         ...SERVICE_PROVIDERS

@@ -1,0 +1,27 @@
+<section>
+    <h2>Game Started</h2>
+
+    <div class="candidate">
+        <h3>Candidate: {{candidate}}</h3>
+    </div>
+
+    <div class="candidate">
+        <h3>President: PRESIDENT</h3>
+        <h3>Chancellor: none</h3>
+        <h4>Status: Waiting for PRESIDENT to choose Chancellor.</h3>
+    </div>
+    <div class="role-buttons">
+        Click the Role button to see your role.
+        <button (click)="clickedRole()">Role</button>
+    </div>
+    <div class="rolesview" [hidden]="hideRole">
+        <p>You are: </p>
+        <p [hidden]="hideTeam">
+            Teammates are:
+        </p>
+        <p [hidden]="hideTrump">
+            Trump is:
+        </p>
+
+    </div>
+</section>
