@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { VoteComponent } from './vote/vote.component';
-import { ClientGameComponent } from './client/client-game.component';
 
 import { HostRegisterComponent } from './host/host-register.component';
 import { HostGameComponent } from './host/game/host-game.component';
@@ -26,10 +25,6 @@ const routes: Routes = [
         component: LobbyComponent
     },
     {
-        path: 'client/game/:gameId',
-        component: ClientGameComponent
-    },
-    {
         path:'vote',
         component: VoteComponent
     },
@@ -42,7 +37,7 @@ const routes: Routes = [
         component: HostGameComponent
     },
     {
-        path:'started',
+        path:'started/:gameId',
         component: StartedComponent
     }
 ];

@@ -59,7 +59,7 @@ export class LobbyComponent implements OnInit, OnDestroy {
 
                     if (games[0].started) {
                         this.router.navigate(
-                            ['/client/game', games[0].gameId]
+                            ['/started', games[0].gameId]
                         );
                     }
                 }
