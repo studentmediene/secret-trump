@@ -2,53 +2,68 @@ $selectedShadow: rgba(0,0,0,.2) 0.10em 0.10em 0.15em;
 $defaultShadow: rgba(0,0,0,.3) 0.05em 0.05em 0.1em;
 
 .board {
-    margin-top: 20px;
+    margin-top: 2em;
     list-style-type: none;
 
     text-align: center;
     border: none;
     display: flex;
+
+
+    li {
+        background-color: #ECEFF1;
+        flex-grow: 1;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 2px;
+        font-size: 0.8em;
+        box-shadow: $defaultShadow;
+        flex-basis: 15%;
+
+        p {
+            color: #FFF;
+        }
+    }
 }
 
-.board li {
-    background-color: #ECEFF1;
-    flex-grow: 1;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 2px;
-    font-size: 0.8em;
-    box-shadow: $defaultShadow;
-    flex-basis: 15%;
-}
-
-.board li~li {
-    /*border-left: #555 solid 3px;*/
-
-}
 
 .populated p{
     color: #efefef;
 }
 
-.board-conservative li {
-    background-color: #E1F5FE;
+.board-conservative{
+
+    li {
+        background-color: #0288D1;
+    }
+
+    .populated {
+        background-color: #0091EA;
+        box-shadow: $selectedShadow;
+    }
 }
 
-.board-conservative .populated {
-    background-color: #039BE5;
-    box-shadow: $selectedShadow;
+.board-republicans {
+
+    li {
+        background-color: #F44336;
+    }
+
+    .populated {
+        background-color: #C62828;
+        box-shadow: $selectedShadow;
+    }
+
 }
 
-.board-republicans li {
-    background-color: #FFEBEE;
-}
+.unpopulated {
+    background-color: #DDD;
 
-.board-republicans .populated {
-    background-color: #EF5350;
-
-    box-shadow: $selectedShadow;
+    p {
+        color: #444;
+    }
 }

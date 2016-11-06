@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { Players } from '../../../../../both/collections/players.collection';
 import { Player } from '../../../../../both/models/player.model';
+import { Elections } from '../../../../../both/collections/elections.collection';
+import { Election } from '../../../../../both/models/election.model';
 
 //noinspection TypeScriptCheckImport
 import template from './host-game.component.html';
@@ -21,9 +23,12 @@ export class HostGameComponent implements OnInit, OnDestroy{
     gameId: string;
     private sub: any;
 
+    currentRound = 1;
     players: Player[];
     president: Player;
-    counselor: Player;
+    headOfCongress: Player;
+
+    election: Election;
     voting: boolean = false;
 
     constructor(private route: ActivatedRoute) { }
@@ -37,17 +42,15 @@ export class HostGameComponent implements OnInit, OnDestroy{
 
     }
 
+
     playGame(gameId) {
-        Players.find({ gameId })
-            .subscribe((p: Player[]) => {
-                //console.log(...p);
+        Elections.find({gameId}).subscribe((elects: Election[]) => {
+                const elect = elects[this.currentRound-1];
+                this.voting = elect.state === 'voting';
+                this.election = elect;
+                this.currentRound++;
             });
     }
-
-
-
-
-
 
 
 

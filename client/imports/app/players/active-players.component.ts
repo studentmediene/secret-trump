@@ -22,6 +22,7 @@ export class ActivePlayersComponent {
     set hostId(id: string) {
         this._hostId = id;
         // Filter active users by their selected gameId
+        //noinspection TypeScriptUnresolvedFunction
         this.activePlayers = Players.find({gameId: id}).zone();
     }
     get hostId() {

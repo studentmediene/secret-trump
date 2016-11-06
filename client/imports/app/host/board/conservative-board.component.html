@@ -1,7 +1,7 @@
 <ul class="board board-conservative">
-    <li *ngFor="let b of board" [class.populated]="b">
-        <p *ngIf="b">{{b.label}}</p>
-        <p *ngIf="!b">none</p>
+    <li *ngFor="let b of board" [class.populated]="b.active">
+        <p>{{b.label}}</p>
+        <p *ngIf="b.unlocks">{{b.unlocks}}</p>
     </li>
 </ul>
-
+<p class="board-rules"></p>

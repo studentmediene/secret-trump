@@ -1,13 +1,13 @@
 <section *ngIf="!voting">
     <h3 class="sub-title">{{gameId}}</h3>
     <div>
-        <label>President: </label>
-        <strong *ngIf="president">{{president.username}}</strong>
+        <label>Header of Congress: </label>
+        <strong *ngIf="president">{{headOfCongress.username}}</strong>
         <strong *ngIf="!president">open</strong>
     </div>
     <div>
-        <label>Counselor: </label>
-        <strong *ngIf="counselor">{{counselor.username}}</strong>
+        <label>President: </label>
+        <strong *ngIf="counselor">{{president.username}}</strong>
         <strong *ngIf="!counselor">open</strong>
     </div>
 
@@ -15,15 +15,16 @@
 
 <section *ngIf="voting">
     <h3 class="sub-title">VOTING</h3>
-
+    <st-host-vote [election]="election"></st-host-vote>
 </section>
 
-<section>
+<section *ngIf="!voting">
+    <img class="icon" src="http://files.gamebanana.com/img/ico/sprays/democrat.png" alt="Republican logo">
     <h3 class="sub-title">Conservatives</h3>
     <st-conservative-board></st-conservative-board>
 </section>
 
-<section>
+<section *ngIf="!voting">
     <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/1179px-Republicanlogo.svg.png" alt="Republican logo">
     <h3 class="sub-title">Liberals</h3>
     <st-republican-board></st-republican-board>

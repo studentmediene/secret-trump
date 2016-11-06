@@ -1,7 +1,9 @@
+<p class="lbl-status">Republicans win if Trump gets elected as President</p>
 <ul class="board board-republicans">
-    <li *ngFor="let b of board" [class.populated]="b.active">
+    <li *ngFor="let b of board" [class.unpopulated]="b.label == ''" [class.populated]="b.active" >
         <p>{{b.label}}</p>
+        <br>
         <p *ngIf="b.unlocks">{{b.unlocks}}</p>
     </li>
 </ul>
-
+<p class="board-rules">7 or 8 Players: Play with 2 fascists and Trump, Trump doesn't know who the fascists are</p>
