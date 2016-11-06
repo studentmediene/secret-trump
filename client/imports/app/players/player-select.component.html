@@ -1,0 +1,8 @@
+<ul class="select">
+    <li
+        *ngFor="let player of players | async"
+        (click)="onSelect(player)"
+    >
+        {{player.username}}
+    </li>
+</ul>
