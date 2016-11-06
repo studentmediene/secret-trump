@@ -10,6 +10,7 @@ import { GameService } from '../services/game.service';
 import template from './vote.component.html';
 //noinspection TypeScriptCheckImport
 import style from './vote.component.scss';
+
 @Component({
     selector: 'st-vote',
     template,
@@ -40,6 +41,7 @@ export class VoteComponent {
      */
     private hasVoted() : boolean {
         const playerId = this.gameService.activePlayerId;
-        return typeof this.election.votes[playerId] != 'undefined';
+        return this.election.votes &&
+            typeof this.election.votes[playerId] != 'undefined';
     }
 }

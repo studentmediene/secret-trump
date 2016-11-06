@@ -1,7 +1,9 @@
-<section>
+<section *ngIf="election && election.candidate">
     <h3>Vote</h3>
     <div *ngIf="!hasVoted()" class="vote-buttons">
-        <p>Do you wish to elect {{election.candidate.username}} as President?</p>
+        <p>
+            Do you wish to elect {{election.candidate.username}} as President?
+        </p>
         <button (click)="vote(true)">Yes (ja)</button>
         <button (click)="vote(false)">No (nei)</button>
     </div>
