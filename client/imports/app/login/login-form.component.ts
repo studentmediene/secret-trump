@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { GameService } from '../services/game.service';
 import { Players } from '../../../../both/collections/players.collection';
 import { Games } from '../../../../both/collections/games.collection';
 
@@ -18,7 +19,8 @@ export class LoginFormComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private router: Router
+        private router: Router,
+        private gameService : GameService
     ) { }
 
     ngOnInit(): void {
@@ -48,7 +50,12 @@ export class LoginFormComponent implements OnInit {
             return;
         }
 
-        Players.insert({username, gameId});
-        this.router.navigate(['/client/lobby', gameId]);
+        Players
+            .insert({username, gameId})
+            .first()
+            .subscribe((id : string) => {
+                this.gameService.activePlayerId = id;
+                this.router.navigate(['/client/lobby', gameId]);
+            });
     }
 }

@@ -8,5 +8,5 @@ export interface Election extends CollectionObject {
     state: string;
     headOfCongress?: Player;
     candidate?: Player;
-    votes: { [username: string]: boolean };
+    votes: { [_id: string]: boolean };
 }

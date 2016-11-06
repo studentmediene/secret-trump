@@ -7,6 +7,8 @@ import { Player } from '../../../../both/models/player.model.ts';
 @Injectable()
 export class GameService {
 
+    activePlayerId : string;
+
     getGameId(): string {
         // TODO: Dummy-data
         return '666'
