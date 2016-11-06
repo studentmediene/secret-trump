@@ -25,8 +25,8 @@ export class LobbyComponent implements OnInit, OnDestroy {
         // Kickstart the first election
         Elections.insert({
             electionId: 1,
-            gameId: this.game._id,
-            state: 'select_cadidate',
+            gameId: this.game.gameId,
+            state: 'select_candidate',
             /*headOfCongress: TODO, */
             votes: {}
         });
