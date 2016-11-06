@@ -180,6 +180,16 @@ button {
     margin-right: .5%;
 }
 
+@mixin selectable {
+    cursor: pointer;
+    background: $tint;
+
+    &:hover {
+        background: gray;
+        color: white;
+    }
+}
+
 /**
  * List with large, selectable items.
  */
@@ -190,15 +200,30 @@ ul.select {
     > li {
         padding: 1em;
         display: block;
-        cursor: pointer;
 
-        &:hover {
-            background: gray;
-            color: white;
-        }
+        @include selectable();
     }
 
     > li + li {
         border-top: 0.1em solid gray;
+    }
+}
+
+/**
+ * List of cards
+ */
+ul.cards {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+
+    > li {
+        display: inline-block;
+        font-size: 4em;
+        width: 1em;
+        padding: 0.3em;
+        margin: 0.1em;
+
+        @include selectable();
     }
 }

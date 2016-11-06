@@ -28,7 +28,8 @@ export class LobbyComponent implements OnInit, OnDestroy {
             gameId: this.game.gameId,
             state: 'select_candidate',
             /*headOfCongress: TODO, */
-            votes: {}
+            votes: {},
+            cards: []
         });
 
         // Start game

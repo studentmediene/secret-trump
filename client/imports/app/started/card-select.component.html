@@ -1,0 +1,11 @@
+<section>
+    <h2>Select cards!</h2>
+    <p>Which card do you want to discard?</p>
+
+    <ul *ngIf="cards" class="cards">
+        <li *ngFor="let card of cards" (click)="onSelect(card)">
+            {{card.substr(0, 1).toUpperCase()}}
+        </li>
+    </ul>
+
+</section>

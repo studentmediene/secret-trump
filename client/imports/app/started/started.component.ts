@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, OnDestroy} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 
@@ -6,6 +6,7 @@ import { Players } from '../../../../both/collections/players.collection';
 import { Player } from '../../../../both/models/player.model';
 import { Elections } from '../../../../both/collections/elections.collection';
 import { Election } from '../../../../both/models/election.model';
+import { GameService } from '../services/game.service';
 
 import template from './started.component.html';
 
@@ -14,14 +15,19 @@ import template from './started.component.html';
     template
 })
 
-export class StartedComponent implements OnInit {
+export class StartedComponent implements OnInit, OnDestroy {
     election : Election;
+    player : Player;
+
+    disposable : any;
+
     hideRole: boolean;
     hideTrump: boolean;
     hideTeam: boolean;
 
     constructor(
-        private route : ActivatedRoute
+        private route : ActivatedRoute,
+        private gameService : GameService
     ) {
         this.hideRole = true;
         this.hideTeam = false;
@@ -30,6 +36,14 @@ export class StartedComponent implements OnInit {
 
     clickedRole(event) {
         this.hideRole = !this.hideRole;
+    }
+
+    selectCards(cards) {
+        if (!this.election) {
+            return;
+        }
+
+        Elections.update(this.election._id, {$set: {cards}});
     }
 
     ngOnInit() : void {
@@ -48,5 +62,18 @@ export class StartedComponent implements OnInit {
                 this.election = item;
             });
 
+        // Fetch current player
+        this.disposable = Players
+            .find(this.gameService.activePlayerId)
+            .zone()
+            .subscribe((players : Player[]) => {
+                if (players.length) {
+                    this.player = players[0];
+                }
+            });
+    }
+
+    ngOnDestroy() : void {
+        this.disposable.unsubscribe();
     }
 }

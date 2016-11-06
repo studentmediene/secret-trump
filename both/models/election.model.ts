@@ -9,4 +9,5 @@ export interface Election extends CollectionObject {
     headOfCongress?: Player;
     candidate?: Player;
     votes: { [_id: string]: boolean };
+    cards: string[];
 }
