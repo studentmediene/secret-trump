@@ -1,10 +1,19 @@
 <table>
     <tr>
         <td>Head of congress: </td>
-        <td>{{election.headOfCongress}}</td>
+        <td><strong>{{election.headOfCongress.username}}</strong></td>
+
     </tr>
     <tr>
         <td>Presidential Candidate: </td>
-        <td>{{election.candidate}}</td>
+        <td><strong>{{election.candidate.username}}</strong</td>
     </tr>
 </table>
+
+<div class="loader"></div>
+
+<ul class="vote-list">
+    <li class="voted" *ngFor="let vote of votes" [class.voted-yes]="vote.vote">
+        {{vote.username}}
+    </li>
+</ul>

@@ -14,8 +14,14 @@
 </section>
 
 <section *ngIf="voting">
-    <h3 class="sub-title">VOTING</h3>
-    <st-host-vote [election]="election"></st-host-vote>
+    <h3 *ngIf="!voteComplete" class="sub-title">Time to vote!</h3>
+    <h3 *ngIf="voteComplete" class="sub-title">Vote Completed</h3>
+    <strong class="board-rules" *ngIf="roundState == 'select_candidate'">President is selecting candidate</strong>
+    <st-host-vote *ngIf="roundState == 'voting'"
+                  [election]="election"
+                  [players]="players"></st-host-vote>
+
+    <div>{{ approvedVotes ? 'Approved!' : 'New election!'}}</div>
 </section>
 
 <section *ngIf="!voting">
