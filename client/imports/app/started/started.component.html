@@ -10,18 +10,19 @@
         <h3>Chancellor: none</h3>
         <h4>Status: Waiting for PRESIDENT to choose Chancellor.</h3>
     </div>
+</section>
+<section>
     <div class="role-buttons">
         Click the Role button to see your role.
         <button (click)="clickedRole()">Role</button>
     </div>
     <div class="rolesview" [hidden]="hideRole">
         <p>You are: </p>
-        <p [hidden]="hideTeam">
+        <p class="teamview" *ngIf="hideTeam">
             Teammates are:
         </p>
-        <p [hidden]="hideTrump">
+        <p class="trumpview" *ngIf="hideTrump">
             Trump is:
         </p>
-
     </div>
 </section>
